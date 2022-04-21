@@ -20,7 +20,7 @@ import Cls from './MapView.module.scss';
 import React, { useCallback, useEffect, useState } from 'react';
 import MainMap from './main-map/MainMap';
 import LayerControls from './layer-controls/LayerControls';
-import GeometryControls from './geometry-controls/GeometryControls';
+import FeatureControls from './feature-controls/FeatureControls';
 import ProjectStatus from './project-status/ProjectStatus';
 import { Logger } from '@abc-map/shared';
 import ProjectControls from './project-controls/ProjectControls';
@@ -43,6 +43,7 @@ import { isDesktopDevice } from '../../core/ui/isDesktopDevice';
 import { Scale } from '../../components/scale/Scale';
 import { Attributions } from './main-map/attributions/Attributions';
 import { Zoom } from './main-map/zoom/Zoom';
+import { FeatureWrapper } from '../../core/geo/features/FeatureWrapper';
 
 const logger = Logger.get('MapView.tsx');
 
@@ -52,6 +53,7 @@ function MapView() {
   const { geo } = useServices();
   const [layers, setLayers] = useState<LayerWrapper[]>([]);
   const [activeLayer, setActiveLayer] = useState<LayerWrapper | undefined>();
+  const [features, setFeatures] = useState<FeatureWrapper[]>([]);
 
   const mainMap = geo.getMainMap();
 
@@ -63,6 +65,7 @@ function MapView() {
     logger.debug('Layers changed');
     setLayers(mainMap.getLayers());
     setActiveLayer(mainMap.getActiveLayer());
+    setFeatures(mainMap.getActiveFeatures());
   }, [mainMap]);
 
   useEffect(() => {
@@ -147,7 +150,7 @@ function MapView() {
         data-cy={'layers-menu'}
       >
         <LayerControls layers={layers} />
-        <GeometryControls layers={layers} />
+        <FeatureControls features={features} />
         {/* ^ Convert to list of geometries */}
       </SideMenu>
 

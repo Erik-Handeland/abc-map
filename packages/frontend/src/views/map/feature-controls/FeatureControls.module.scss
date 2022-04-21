@@ -21,7 +21,7 @@
 
 $list-height: 6rem;
 
-.geometryControls {
+.featureControls {
   display: flex;
   flex-direction: column;
 }
@@ -37,7 +37,7 @@ $list-height: 6rem;
   margin-bottom: 0.8rem;
 }
 
-.geometryList {
+.featureList {
   min-height: $list-height;
   max-height: $list-height * 1.5;
 
@@ -75,6 +75,6 @@ $list-height: 6rem;
   }
 }
 
-.noGeometry {
+.noFeature {
   padding: 1rem;
 }

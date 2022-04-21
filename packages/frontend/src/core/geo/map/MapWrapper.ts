@@ -239,6 +239,18 @@ export class MapWrapper {
       .filter((f) => f.isSelected());
   }
 
+  public getActiveFeatures(): FeatureWrapper[] {
+    const layer = this.getActiveVectorLayer();
+    if (!layer) {
+      return [];
+    }
+
+    return layer
+      .getSource()
+      .getFeatures()
+      .map((f) => FeatureWrapper.from(f));
+  }
+
   public getProjection(): AbcProjection {
     return {
       name: this.internalMap.getView().getProjection().getCode(),

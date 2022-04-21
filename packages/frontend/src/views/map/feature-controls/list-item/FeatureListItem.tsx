@@ -17,43 +17,37 @@
  */
 
 import React, { useCallback } from 'react';
-import { BaseMetadata } from '@abc-map/shared';
-import Cls from './GeometryListItem.module.scss';
+import Cls from './FeatureListItem.module.scss';
 import { IconDefs } from '../../../../components/icon/IconDefs';
 import { FaIcon } from '../../../../components/icon/FaIcon';
+import { PropertiesMap } from '../../../../core/geo/features/FeatureWrapper';
+import { FeatureProperties } from '@abc-map/shared/build/project/feature/FeatureProperties';
 
 interface Props {
-  metadata: BaseMetadata;
+  metadata: PropertiesMap;
   onSelect: (id: string) => void;
   onToggleVisibility: (lay: string) => void;
 }
 
-function GeometryListItem(props: Props) {
+function FeatureListItem(props: Props) {
   const meta = props.metadata;
   const itemClasses = meta.active ? `${Cls.listItem} ${Cls.active}` : `${Cls.listItem}`;
-  const icon = meta.visible ? IconDefs.faEye : IconDefs.faEyeSlash;
-  const iconClasses = meta.visible ? `${Cls.visibility} ${Cls.visible}` : `${Cls.visibility} ${Cls.notVisible}`;
-  const dataGeometry = meta.active ? 'active' : `inactive`;
+  //const icon = meta.visible ? IconDefs.faEye : IconDefs.faEyeSlash;
 
   const handleSelect = useCallback(() => {
     props.onSelect(meta.id);
   }, [props, meta]);
 
-  const handleToggleVisibility = useCallback(() => {
-    props.onToggleVisibility(meta.id);
-  }, [props, meta]);
-
   return (
-    <div className={itemClasses} data-cy={'list-item'} data-Geometry={dataGeometry}>
-      {/* Eye icon, visible only if Geometry is visible */}
-      <div onClick={handleToggleVisibility} className={iconClasses}>
-        <FaIcon icon={icon} className={iconClasses} size={'1.2rem'} />
-      </div>
+    <div className={itemClasses} data-cy={'list-item'}>
+      {/* Eye icon, visible only if Feature is visible */}
+      {/* <FaIcon icon={icon} size={'1.2rem'} /> */}
       <div className={'flex-grow-1'} onClick={handleSelect}>
-        {meta.name}
+        {meta.geometry.ol_uid + ' ' + meta[FeatureProperties.Name] + ' ' + meta[FeatureProperties.Selected]}
+        {/* {'Data:' + JSON.stringify(meta)} */}
       </div>
     </div>
   );
 }
 
-export default GeometryListItem;
+export default FeatureListItem;

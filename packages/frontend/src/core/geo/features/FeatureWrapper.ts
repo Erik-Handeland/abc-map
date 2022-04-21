@@ -30,6 +30,12 @@ const logger = Logger.get('FeatureWrapper.ts');
 export declare type PropertiesMap = { [key: string]: any };
 export declare type SimplePropertiesMap = { [key: string]: string | number | undefined };
 
+export declare type FeatureMetadata = FeatureType;
+export declare enum FeatureType {
+  Vector = 'Vector',
+  GeometryType = 'Xyz',
+}
+
 /**
  * This class is a thin wrapper around Openlayers features, used to ensure that critical operations
  * on features are well done
@@ -97,6 +103,15 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
   public setSelected(value: boolean): FeatureWrapper {
     this.feature.set(FeatureProperties.Selected, value);
     return this;
+  }
+
+  public setName(value: string): boolean {
+    this.feature.set(FeatureProperties.Name, value);
+    return true;
+  }
+
+  public getName(): String {
+    return this.feature.get(FeatureProperties.Name);
   }
 
   /**

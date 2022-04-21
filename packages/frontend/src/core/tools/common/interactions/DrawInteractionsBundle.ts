@@ -17,7 +17,7 @@
  */
 
 import GeometryType from 'ol/geom/GeometryType';
-import { FeatureStyle, Logger } from '@abc-map/shared';
+import { FeatureStyle, LayerProperties, Logger } from '@abc-map/shared';
 import { Draw, Modify, Snap } from 'ol/interaction';
 import { FeatureWrapper } from '../../../geo/features/FeatureWrapper';
 import { DrawEvent } from 'ol/interaction/Draw';
@@ -210,6 +210,8 @@ export class DrawInteractionsBundle {
       this.onNewChangeset && this.onNewChangeset(new AddFeaturesChangeset(source, [feature]));
 
       this.onFeatureAdded && this.onFeatureAdded(feature);
+      //Trigger layer reload so that new feature shows in list. TODO only updates on second element -1!
+      this.map?.getLayers().set(LayerProperties.LastLayerChange, performance.now());
     });
 
     this.map?.addInteraction(this.draw);

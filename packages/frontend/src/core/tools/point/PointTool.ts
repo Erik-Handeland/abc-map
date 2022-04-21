@@ -17,7 +17,7 @@
  */
 
 import { Tool } from '../Tool';
-import { FeatureStyle, MapTool } from '@abc-map/shared';
+import { FeatureStyle, LayerProperties, MapTool } from '@abc-map/shared';
 import VectorSource from 'ol/source/Vector';
 import Geometry from 'ol/geom/Geometry';
 import Icon from '../../../assets/tool-icons/point.inline.svg';
