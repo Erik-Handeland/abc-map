@@ -17,7 +17,7 @@
  */
 
 import { Tool } from '../Tool';
-import { Logger, MapTool } from '@abc-map/shared';
+import { LayerProperties, Logger, MapTool } from '@abc-map/shared';
 import { DragBox, Interaction, Translate } from 'ol/interaction';
 import VectorSource, { VectorSourceEvent } from 'ol/source/Vector';
 import Geometry from 'ol/geom/Geometry';
@@ -164,6 +164,7 @@ export class SelectionTool implements Tool {
       map.addInteraction(inter);
       this.interactions.push(inter);
     });
+    this.map?.getLayers().set(LayerProperties.LastLayerChange, performance.now());
   }
 
   private handleFeatureAdded = (evt: VectorSourceEvent<Geometry>) => {

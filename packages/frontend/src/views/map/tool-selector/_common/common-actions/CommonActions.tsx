@@ -132,6 +132,7 @@ function CommonActions() {
 
         // We generate a new id
         clone.setId();
+        toasts.info(clone.getId() as string);
         clone.setSelected(true);
 
         // We translate new geometries

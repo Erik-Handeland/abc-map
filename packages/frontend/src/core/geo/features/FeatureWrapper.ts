@@ -78,8 +78,7 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
   }
 
   public getId(): string | number | undefined {
-    return this.getAllProperties().geometry.ol_uid;
-    return this.feature.getId(); //TODO !important Doesn't work, always retuyrns undefined maybe setID is never called?
+    return this.feature.getId();
   }
 
   /**
@@ -245,7 +244,9 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
   }
 
   public getAllProperties(): PropertiesMap {
-    return this.feature.getProperties();
+    const props = this.feature.getProperties();
+    props['id'] = this.getId(); // doesn't enclude id for some reason
+    return props;
   }
 
   /**

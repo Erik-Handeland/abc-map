@@ -31,7 +31,7 @@ interface Props {
 
 function FeatureListItem(props: Props) {
   const meta = props.metadata;
-  const id = meta.geometry.ol_uid;
+  const id = meta.id; // meta.geometry.ol_uid
   const itemClasses = meta[FeatureProperties.Selected] ? `${Cls.listItem} ${Cls.active}` : `${Cls.listItem}`;
   //const icon = meta.visible ? IconDefs.faEye : IconDefs.faEyeSlash;
 
@@ -44,7 +44,7 @@ function FeatureListItem(props: Props) {
       {/* Eye icon, visible only if Feature is visible */}
       {/* <FaIcon icon={icon} size={'1.2rem'} /> */}
       <div className={'flex-grow-1'} onClick={handleSelect}>
-        {id + ' ' + meta[FeatureProperties.Name] + ' ' + meta[FeatureProperties.Selected]}
+        {id + ' ' + meta[FeatureProperties.Name]}
         {/* {'Data:' + JSON.stringify(meta)} */}
       </div>
     </div>
