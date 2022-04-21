@@ -140,7 +140,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jsonwebtoken": "^8.5.1",
-    "node-sass": "^7.0.1",
+    "sass": "^1.50.1",
     "prettier": "^2.5.1",
     "react-app-rewired": "^2.1.9",
     "react-scripts": "^5.0.0",

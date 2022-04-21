@@ -22,9 +22,6 @@ import { FeatureWrapper } from '../features/FeatureWrapper';
 import { SupportedGeometry } from '../../tools/common/interactions/SupportedGeometry';
 
 logger.disable();
-
-// TODO: improve tests
-
 describe('SelectionStyleFactory', function () {
   let factory: SelectionStyleFactory;
 

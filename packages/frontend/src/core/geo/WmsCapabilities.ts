@@ -62,7 +62,6 @@ export interface WmsRequestInfo {
 export interface WmsGetCapabilityInfo {
   Format?: string[];
   DCPType?: {
-    // TODO: complete
     HTTP?: {
       Get?: {
         OnlineResource?: string;

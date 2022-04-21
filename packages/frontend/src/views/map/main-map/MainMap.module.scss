@@ -17,7 +17,6 @@
  */
 
 @import "src/styles/variables";
-@import "src/styles/mixins";
 
 .mapContainer {
   flex-grow: 1;
@@ -92,39 +91,4 @@
   background: $warning;
 
   z-index: $zIndex-mainMap-tileLoadError;
-}
-
-.bottomBar {
-  position: absolute;
-
-  bottom: 1.5rem;
-  left: 25vw;
-  right: 25vw;
-
-  @include media-breakpoint-down(xl) {
-    left: 2vmin;
-    right: 2vmin;
-  }
-
-  height: 6vh;
-
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-
-  .controls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    button {
-      margin-left: 1rem;
-    }
-  }
-}
-
-.scale {
-  box-shadow: $box-shadow;
 }

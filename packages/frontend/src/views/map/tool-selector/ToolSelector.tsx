@@ -40,6 +40,7 @@ import ToolModeSelector from './_common/tool-mode-selector/ToolModeSelector';
 import { Tool } from '../../../core/tools/Tool';
 import Cls from './ToolSelector.module.scss';
 import MeasuresToolPanel from './measures/MeasuresToolPanel';
+import { PolygonTool } from '../../../core/tools/polygon/PolygonTool';
 
 const logger = Logger.get('ToolSelector');
 
@@ -154,12 +155,23 @@ function ToolSelector(props: Props) {
           <div className={Cls.toolsEnabled}>
             {/* Left part with tool buttons and common actions */}
             <div className={Cls.buttonBar}>
-              {ToolRegistry.getAll().map((tool) => {
+              {/* Navigation Tools */}
+              {ToolRegistry.getSelection().map((tool) => {
                 const isActive = tool.getId() === activeTool?.getId();
                 return <ToolButton key={tool.getId()} tool={tool} active={isActive} onSelect={handleToolSelection} />;
               })}
               <div className={Cls.spacer} />
-              <CommonActions />
+              {/* Creation Tools, Points, Lines, Shapes */}
+              {ToolRegistry.getCreate().map((tool) => {
+                const isActive = tool.getId() === activeTool?.getId();
+                return <ToolButton key={tool.getId()} tool={tool} active={isActive} onSelect={handleToolSelection} />;
+              })}
+              <div className={Cls.spacer} />
+              {/* Modify Tools, Add labels, edit properties */}
+              {ToolRegistry.getModify().map((tool) => {
+                const isActive = tool.getId() === activeTool?.getId();
+                return <ToolButton key={tool.getId()} tool={tool} active={isActive} onSelect={handleToolSelection} />;
+              })}
             </div>
 
             {/* Right part with options  */}

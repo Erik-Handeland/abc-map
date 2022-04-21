@@ -7,5 +7,40 @@
     {
       "mode": "auto"
     }
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  "hide-files.files": [
+    "documentation/assets",
+    "documentation/scripts",
+    ".editorconfig",
+    ".gitlab-ci.yml",
+    "ROADMAP.md",
+    "license-header.txt",
+    "CONTRIBUTING.md",
+    "crowdin.yml",
+    "lerna.json",
+    "LICENSE.txt",
+    "packages/frontend/node_modules",
+    "packages/frontend/build",
+    "packages/frontend/yarn.lock",
+    "packages/e2e-tests",
+    "node_modules",
+    "packages/user-documentation",
+    "packages/performance-tests",
+    "package-lock.json",
+    "yarn.lock",
+    "packages/shared/build",
+    "packages/shared/node_modules",
+    "packages/server/build",
+    "packages/server/node_modules",
+    "packages/frontend/src/data-processing",
+    "packages/frontend/src/assets"
   ]
 }

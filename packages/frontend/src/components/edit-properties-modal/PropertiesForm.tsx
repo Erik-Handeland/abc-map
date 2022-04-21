@@ -28,8 +28,6 @@ import { withTranslation } from 'react-i18next';
 import { FaIcon } from '../icon/FaIcon';
 import { IconDefs } from '../icon/IconDefs';
 
-// TODO: unit test
-
 const logger = Logger.get('PropertiesForm.tsx');
 
 interface Props extends ServiceProps {

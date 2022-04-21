@@ -33,8 +33,8 @@ import SetPasswordModal from './components/set-password-modal/SetPasswordModal';
 import LongOperationModal from './components/long-operation-modal/LongOperationModal';
 import ConfirmationModal from './components/confirmation-modal/ConfirmationModal';
 import { withTranslation } from 'react-i18next';
-import FeedbackPopup from './components/feedback/FeedbackPopup';
-import FeedbackModal from './components/feedback/FeedbackModal';
+//import FeedbackPopup from './components/feedback/FeedbackPopup';
+//import FeedbackModal from './components/feedback/FeedbackModal';
 import { Routes } from './routes';
 import { WarningBeforeUnload } from './components/warning-before-unload/WarningBeforeUnload';
 import { TokenWatcher } from './components/token-watcher/TokenWatcher';
@@ -76,7 +76,6 @@ export function App() {
       {fullscreenView && (
         <>
           <TopBar />
-
           <div className={clsx(Cls.appViewport, 'abc-app-viewport')}>
             <Suspense fallback={fallbackUi()}>
               <Switch>
@@ -97,12 +96,11 @@ export function App() {
               </Switch>
             </Suspense>
           </div>
-
           <ConfirmationModal />
           <DeviceWarningModal />
           <EditPropertiesModal />
-          <FeedbackModal />
-          <FeedbackPopup />
+          {/* <FeedbackModal /> */}
+          {/* <FeedbackPopup /> */}
           <LoginModal />
           <LongOperationModal />
           <PasswordInputModal />

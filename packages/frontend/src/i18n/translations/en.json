@@ -61,7 +61,8 @@
     "Visualize_and_create_in_your_browser": "View, create and edit maps in your browser \uD83C\uDF0D ✏️",
     "Search_menu": "Search",
     "Project_menu": "Project",
-    "Draw_menu": "Draw and layers",
+    "Layers_menu": "Layers",
+    "Tools_menu": "Tools",
     "FullscreenButton": {
       "Fullscreen": "Fullscreen"
     },

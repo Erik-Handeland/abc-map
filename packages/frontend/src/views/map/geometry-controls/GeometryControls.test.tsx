@@ -16,34 +16,22 @@
  * Public License along with Abc-Map. If not, see <https://www.gnu.org/licenses/>.
  */
 
-export interface Prj {
-  original: string;
-  wkt: PrjWkt;
-}
-export interface PrjWkt {
-  type: 'PROJCS';
-  name: string;
-  projName: string;
-  srsCode: string;
-  GEOGCS?: any;
-  latitude_of_center?: number;
-  longitude_of_center?: number;
-  false_easting?: number;
-  false_northing?: number;
-  axis?: string;
-  units?: string;
-  to_meter?: 1;
-  datumCode?: string;
-  ellps?: string;
-  a?: number;
-  rf?: number;
-  lat0?: number;
-  longc?: number;
-  x0?: number;
-  y0?: number;
-  long0?: number;
-  UNIT?: any;
-  PROJECTION?: string;
-  AUTHORITY?: { EPSG: string };
-  AXIS?: any;
-}
+// TODO
+// import React from 'react';
+// import { screen } from '@testing-library/react';
+// import LayerControls from './LayerControls';
+// import { newTestServices, TestServices } from '../../../core/utils/test/TestServices';
+// import { abcRender } from '../../../core/utils/test/abcRender';
+
+// describe('LayerControls', () => {
+//   let testServices: TestServices;
+//   beforeEach(() => {
+//     testServices = newTestServices();
+//   });
+
+//   it('renders without layers', () => {
+//     abcRender(<LayerControls layers={[]} />, { services: testServices });
+//     const linkElement = screen.getByText(/No layer/i);
+//     expect(linkElement).toBeInTheDocument();
+//   });
+// });

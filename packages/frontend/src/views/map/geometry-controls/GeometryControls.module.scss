@@ -19,51 +19,62 @@
 @import "src/styles/variables";
 @import "src/styles/mixins";
 
-.mapView {
+$list-height: 6rem;
+
+.geometryControls {
   display: flex;
-  flex-direction: row;
-
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
+  flex-direction: column;
 }
 
-.spacer {
-  height: 1rem;
-}
-
-.bottomBar {
-  position: absolute;
-
-  bottom: 1.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
-
-  @include media-breakpoint-down(xl) {
-    left: 2vmin;
-    right: 2vmin;
-  }
-
-  height: 6vh;
-
+.titleRow {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
 
-  .controls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
 
-    button {
-      margin-left: 1rem;
+.geometryList {
+  min-height: $list-height;
+  max-height: $list-height * 1.5;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  padding: 0.5rem;
+  border: solid 0.1rem $gray-400;
+  border-radius: $border-radius;
+}
+
+.buttonBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    font-size: 1.2rem;
+    padding: 0 0.5rem !important;
+
+    @include media-breakpoint-down(xl) {
+      font-size: 1.4rem;
+    }
+
+    :global(.abc-icon) {
+      color: $gray-500;
+    }
+
+    &:hover {
+      :global(.abc-icon) {
+        color: $gray-700;
+      }
     }
   }
 }
 
-.scale {
-  box-shadow: $box-shadow;
+.noGeometry {
+  padding: 1rem;
 }

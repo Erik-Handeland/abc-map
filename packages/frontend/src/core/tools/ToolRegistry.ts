@@ -30,7 +30,7 @@ import { EditPropertiesTool } from './edit-properties/EditPropertiesTool';
 import { MeasureTool } from './measure/MeasureTool';
 
 export class ToolRegistry {
-  public static getAll(): Tool[] {
+  private static getAll(): Tool[] {
     const history = getServices().history;
     const modals = getServices().modals;
     return [
@@ -43,6 +43,22 @@ export class ToolRegistry {
       new EditPropertiesTool(mainStore, history, modals),
       new MeasureTool(),
     ];
+  }
+
+  public static getSelection(): Tool[] {
+    const history = getServices().history;
+    return [new MoveMapTool(), new SelectionTool(mainStore, history)];
+  }
+
+  public static getCreate(): Tool[] {
+    const history = getServices().history;
+    return [new PointTool(mainStore, history), new LineStringTool(mainStore, history), new PolygonTool(mainStore, history)];
+  }
+
+  public static getModify(): Tool[] {
+    const history = getServices().history;
+    const modals = getServices().modals;
+    return [new TextTool(mainStore, history), new EditPropertiesTool(mainStore, history, modals), new MeasureTool()];
   }
 
   public static getById(id: MapTool): Tool {

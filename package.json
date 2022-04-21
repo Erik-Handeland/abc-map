@@ -6,5 +6,9 @@
   },
   "volta": {
     "node": "14.19.1"
+  },
+  "commands": {
+    "echo workspaceFolder": "echo ${workspaceFolder}",
+    "echo file": "echo ${file}"
   }
 }
