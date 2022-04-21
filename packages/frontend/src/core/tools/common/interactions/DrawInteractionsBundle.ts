@@ -210,6 +210,7 @@ export class DrawInteractionsBundle {
       this.onNewChangeset && this.onNewChangeset(new AddFeaturesChangeset(source, [feature]));
 
       this.onFeatureAdded && this.onFeatureAdded(feature);
+
       //Trigger layer reload so that new feature shows in list. TODO only updates on second element -1!
       this.map?.getLayers().set(LayerProperties.LastLayerChange, performance.now());
     });

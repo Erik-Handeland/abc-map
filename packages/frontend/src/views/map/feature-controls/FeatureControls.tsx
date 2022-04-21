@@ -67,7 +67,7 @@ class FeatureControls extends Component<Props, State> {
                 logger.error('Unsupported feature: ', feature);
                 return undefined;
               }
-              return <FeatureListItem metadata={metadata} onSelect={this.handleSelection} onToggleVisibility={this.handleToggleVisibility} />;
+              return <FeatureListItem key={metadata.id} metadata={metadata} onSelect={this.handleSelection} onToggleVisibility={this.handleToggleVisibility} />;
             })
             .filter((elem) => !!elem)}
         </div>
@@ -90,19 +90,21 @@ class FeatureControls extends Component<Props, State> {
     }
   }
 
-  private handleSelection = (layerId: string) => {
-    // const { geo, toasts, history } = this.props.services;
-    // const map = geo.getMainMap();
-    // if (map.getActiveLayer()?.getId() === layerId) {
-    //   return;
-    // }
-    // const feature = map.getLayers().find((lay) => lay.getId() === layerId);
-    // if (!feature) {
-    //   logger.error('feature not found: ' + layerId);
-    //   toasts.genericError();
-    //   return;
-    // }
-    return layerId;
+  private handleSelection = (featureId: string) => {
+    const { geo, toasts } = this.props.services;
+
+    const map = geo.getMainMap();
+    const feature = map.getFeaturesByID(featureId);
+
+    if (!feature) {
+      logger.error('Feature not found: ' + featureId);
+      toasts.error('Feature not found: ' + featureId);
+      return;
+    }
+
+    // Feature found, select or deselect it
+    feature.isSelected() ? feature.setSelected(false) : feature.setSelected(true);
+    map.triggerLayerChange();
   };
 
   //TODO Allow hiding feature

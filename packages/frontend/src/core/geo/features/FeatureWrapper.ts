@@ -30,12 +30,6 @@ const logger = Logger.get('FeatureWrapper.ts');
 export declare type PropertiesMap = { [key: string]: any };
 export declare type SimplePropertiesMap = { [key: string]: string | number | undefined };
 
-export declare type FeatureMetadata = FeatureType;
-export declare enum FeatureType {
-  Vector = 'Vector',
-  GeometryType = 'Xyz',
-}
-
 /**
  * This class is a thin wrapper around Openlayers features, used to ensure that critical operations
  * on features are well done
@@ -84,7 +78,8 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
   }
 
   public getId(): string | number | undefined {
-    return this.feature.getId();
+    return this.getAllProperties().geometry.ol_uid;
+    return this.feature.getId(); //TODO !important Doesn't work, always retuyrns undefined maybe setID is never called?
   }
 
   /**

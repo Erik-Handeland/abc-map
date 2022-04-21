@@ -31,19 +31,20 @@ interface Props {
 
 function FeatureListItem(props: Props) {
   const meta = props.metadata;
-  const itemClasses = meta.active ? `${Cls.listItem} ${Cls.active}` : `${Cls.listItem}`;
+  const id = meta.geometry.ol_uid;
+  const itemClasses = meta[FeatureProperties.Selected] ? `${Cls.listItem} ${Cls.active}` : `${Cls.listItem}`;
   //const icon = meta.visible ? IconDefs.faEye : IconDefs.faEyeSlash;
 
   const handleSelect = useCallback(() => {
-    props.onSelect(meta.id);
-  }, [props, meta]);
+    props.onSelect(id);
+  }, [props, id]);
 
   return (
     <div className={itemClasses} data-cy={'list-item'}>
       {/* Eye icon, visible only if Feature is visible */}
       {/* <FaIcon icon={icon} size={'1.2rem'} /> */}
       <div className={'flex-grow-1'} onClick={handleSelect}>
-        {meta.geometry.ol_uid + ' ' + meta[FeatureProperties.Name] + ' ' + meta[FeatureProperties.Selected]}
+        {id + ' ' + meta[FeatureProperties.Name] + ' ' + meta[FeatureProperties.Selected]}
         {/* {'Data:' + JSON.stringify(meta)} */}
       </div>
     </div>

@@ -139,7 +139,7 @@ function MapView() {
         <ToolSelector activeLayer={activeLayer} />
       </SideMenu>
 
-      {/* Draw Layer menu */}
+      {/* Draw Layer and feature menu */}
       <SideMenu
         title={t('Layers_menu')}
         buttonIcon={IconDefs.faDraftingCompass}
@@ -151,7 +151,6 @@ function MapView() {
       >
         <LayerControls layers={layers} />
         <FeatureControls features={features} />
-        {/* ^ Convert to list of geometries */}
       </SideMenu>
 
       {/*Main map Bottom Bar*/}

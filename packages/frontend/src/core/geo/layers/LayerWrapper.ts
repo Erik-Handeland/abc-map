@@ -92,7 +92,7 @@ export class LayerWrapper<Layer extends OlLayers = OlLayers, Source extends OlSo
   }
 
   /**
-   * This method only set property "name", if you want to update UI you must use MapWrapper.setLayerName().
+   * This method only set property "name", if you want to update UI you must use MapWrapper.renameLayer().
    * @param value
    */
   public setName(value: string): LayerWrapper {
@@ -105,7 +105,7 @@ export class LayerWrapper<Layer extends OlLayers = OlLayers, Source extends OlSo
   }
 
   /**
-   * This method only set property "active", if you want to active layer une MapWrapper.setActiveLayer().
+   * This method only set property "active", if you want to active layer use MapWrapper.setActiveLayer().
    * @param value
    */
   public setActive(value: boolean): LayerWrapper {

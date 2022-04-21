@@ -8,7 +8,7 @@
     "node": "14.19.1"
   },
   "commands": {
-    "echo workspaceFolder": "echo ${workspaceFolder}",
-    "echo file": "echo ${file}"
+    "abc start": "cd ${workspaceFolder} | ./abc-cli start",
+    "abc build": "cd ${workspaceFolder} | ./abc-cli build"
   }
 }
