@@ -95,7 +95,6 @@ class FeatureControls extends Component<Props, State> {
 
     const map = geo.getMainMap();
     const feature = map.getFeaturesByID(featureId);
-    toasts.error('Type is: ' + feature?.getType());
 
     if (!feature) {
       logger.error('Feature not found: ' + featureId);

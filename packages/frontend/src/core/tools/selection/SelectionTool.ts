@@ -116,6 +116,7 @@ export class SelectionTool implements Tool {
         const last = FeatureWrapper.from(this.selection.getArray()[this.selection.getLength() - 1]);
         dispatchStyle(last);
       }
+      this.map?.getLayers().set(LayerProperties.LastLayerChange, performance.now());
     });
 
     // Translate selection
@@ -164,7 +165,6 @@ export class SelectionTool implements Tool {
       map.addInteraction(inter);
       this.interactions.push(inter);
     });
-    this.map?.getLayers().set(LayerProperties.LastLayerChange, performance.now());
   }
 
   private handleFeatureAdded = (evt: VectorSourceEvent<Geometry>) => {
