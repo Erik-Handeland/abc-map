@@ -23,7 +23,7 @@ import { getAbcWindow } from '@abc-map/shared';
 import { ToastContainer } from 'react-toastify';
 import TopBar from './components/top-bar/TopBar';
 import PasswordInputModal from './components/password-input-modal/PasswordInputModal';
-import DeviceWarningModal from './components/device-warning-modal/DeviceWarningModal';
+// import DeviceWarningModal from './components/device-warning-modal/DeviceWarningModal';
 import EditPropertiesModal from './components/edit-properties-modal/EditPropertiesModal';
 import SolicitationModal from './components/solicitation-modal/SolicitationModal';
 import LoginModal from './components/login-modal/LoginModal';
@@ -44,19 +44,19 @@ import clsx from 'clsx';
 
 // App views, all lazy loaded
 const LandingView = lazy(() => import('./views/landing/LandingView'));
-const ExportView = lazy(() => import('./views/export/ExportView'));
-const DataStoreView = lazy(() => import('./views/datastore/DataStoreView'));
+// const ExportView = lazy(() => import('./views/export/ExportView'));
+// const DataStoreView = lazy(() => import('./views/datastore/DataStoreView'));
 const NotFoundView = lazy(() => import('./views/not-found/NotFoundView'));
-const ConfirmAccountView = lazy(() => import('./views/confirm-account/ConfirmAccountView'));
-const DataProcessingView = lazy(() => import('./views/data-processing/DataProcessingView'));
-const ResetPasswordView = lazy(() => import('./views/reset-password/ResetPasswordView'));
+// const ConfirmAccountView = lazy(() => import('./views/confirm-account/ConfirmAccountView'));
+// const DataProcessingView = lazy(() => import('./views/data-processing/DataProcessingView'));
+// const ResetPasswordView = lazy(() => import('./views/reset-password/ResetPasswordView'));
 const MapView = lazy(() => import('./views/map/MapView'));
-const UserAccountView = lazy(() => import('./views/user-account/UserAccountView'));
-const LegalMentionsView = lazy(() => import('./views/legal-mentions/LegalMentionsView'));
-const FundingView = lazy(() => import('./views/funding/FundingView'));
+// const UserAccountView = lazy(() => import('./views/user-account/UserAccountView'));
+// const LegalMentionsView = lazy(() => import('./views/legal-mentions/LegalMentionsView'));
+// const FundingView = lazy(() => import('./views/funding/FundingView'));
 const SharedMapView = lazy(() => import('./views/shared-map/SharedMapView'));
 const SharedMapSettingsView = lazy(() => import('./views/shared-map-settings/SharedMapSettingsView'));
-const DocumentationView = lazy(() => import('./views/documentation/DocumentationView'));
+// const DocumentationView = lazy(() => import('./views/documentation/DocumentationView'));
 
 const fullscreenRoutes = [Routes.sharedMap().raw()];
 
@@ -82,22 +82,22 @@ export function App() {
                 <Route exact path={'/'} component={LandingView} />
                 <Route exact path={Routes.landing().raw()} component={LandingView} />
                 <Route exact path={Routes.map().raw()} component={MapView} />
-                <Route exact path={Routes.dataStore().raw()} component={DataStoreView} />
+                {/* <Route exact path={Routes.dataStore().raw()} component={DataStoreView} /> */}
                 <Route exact path={Routes.shareSettings().raw()} component={SharedMapSettingsView} />
-                <Route exact path={Routes.export().raw()} component={ExportView} />
+                {/* <Route exact path={Routes.export().raw()} component={ExportView} />
                 <Route exact path={Routes.documentation().raw()} component={DocumentationView} />
                 <Route exact path={Routes.confirmAccount().raw()} component={ConfirmAccountView} />
                 <Route exact path={Routes.dataProcessing().raw()} component={DataProcessingView} />
                 <Route exact path={Routes.resetPassword().raw()} component={ResetPasswordView} />
                 <Route exact path={Routes.userAccount().raw()} component={UserAccountView} />
                 <Route exact path={Routes.legalMentions().raw()} component={LegalMentionsView} />
-                <Route exact path={Routes.funding().raw()} component={FundingView} />
+                <Route exact path={Routes.funding().raw()} component={FundingView} /> */}
                 <Route path={'*'} component={NotFoundView} />
               </Switch>
             </Suspense>
           </div>
           <ConfirmationModal />
-          <DeviceWarningModal />
+          {/* <DeviceWarningModal /> */}
           <EditPropertiesModal />
           {/* <FeedbackModal /> */}
           {/* <FeedbackPopup /> */}

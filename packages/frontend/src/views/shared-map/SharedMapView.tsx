@@ -104,7 +104,7 @@ function SharedMapView() {
     }
 
     if (!projectId) {
-      logger.error('Cannot show project, no id found');
+      toasts.error('Cannot show project, no id found');
       setError(true);
       return;
     }
@@ -114,11 +114,11 @@ function SharedMapView() {
     resolveInAtLeast(project.loadPublicProject(projectId), 1000)
       .then(() => map.importLayersFrom(geo.getMainMap(), { withSelection: false }))
       .catch((err) => {
-        logger.error('Loading error: ', err);
+        toasts.error('Loading error: ' + err); // Failes here
         setError(true);
       })
       .finally(() => setLoading(false));
-  }, [geo, map, match.params.projectId, project]);
+  }, [geo, map, match.params.projectId, project, toasts]);
 
   // Set map size
   useEffect(() => {

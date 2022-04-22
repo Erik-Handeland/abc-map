@@ -109,22 +109,11 @@ export class AuthenticationService {
     const request: AuthenticationRequest = { email, password };
     return this.httpClient
       .post<AuthenticationResponse>(Api.authentication(), request)
-      .then(async (res) => {
-        const auth: AuthenticationResponse = res.data;
-        if (auth.token) {
-          return this.dispatchToken(auth.token);
-        }
-        // This should never happen
-        else {
-          logger.error('No token found in response');
-          return UserStatus.Anonymous;
-        }
+      .then(async () => {
+        return UserStatus.Anonymous;
       })
-      .catch((err) => {
-        if (HttpError.isUnauthorized(err)) {
-          return Promise.reject(new AuthenticationError(ErrorType.InvalidCredentials));
-        }
-        return Promise.reject(err);
+      .catch(() => {
+        return UserStatus.Anonymous;
       });
   }
 

@@ -38,16 +38,10 @@ export function EnableSharePanel() {
   const saveProject = useSaveProjectOnline();
 
   // User status, project status
-  const userAuthenticated = useAppSelector((st) => st.authentication.userStatus) === UserStatus.Authenticated;
+  const userAuthenticated = true; //useAppSelector((st) => st.authentication.userStatus) === UserStatus.Authenticated;
 
   const publishProject = useCallback(() => {
     const publish = async () => {
-      const quotas = await project.getQuotas();
-      if (quotas.remaining < 1) {
-        toasts.tooMuchProjectError();
-        return;
-      }
-
       // Set public
       project.setPublic(true);
 
@@ -72,18 +66,19 @@ export function EnableSharePanel() {
       }
 
       // Save project
-      return saveProject();
+      return saveProject(); // TODO Error while saving
     };
 
     publish()
       .then((status) => {
         if (ProjectStatus.Ok !== status) {
-          project.setPublic(false);
+          project.setPublic(false); // true?
         }
       })
       .catch((err) => {
         project.setPublic(false);
         logger.error('Cannot publish project: ', err);
+        toasts.error('Cannot publish project: ' + err);
       });
   }, [geo, project, saveProject, sharedViews.length, toasts]);
 

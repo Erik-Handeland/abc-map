@@ -49,7 +49,7 @@ export async function saveProjectOnline(services: Services): Promise<ProjectStat
       }
     })
     .catch((err) => {
-      toasts.genericError();
+      toasts.error('saveProjectOnline: ' + err);
       return Promise.reject(err);
     });
 }

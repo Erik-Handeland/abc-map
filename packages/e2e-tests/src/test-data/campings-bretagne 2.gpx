@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:gpx="http://www.topografix.com/GPX/1/0" version="1.0" creator="ViewRanger - http://www.viewranger.com" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+  <wpt lat="47.367635" lon="-3.224144">
+    <name>Camping MUNICIPAL LE PEN PRAD 2 *</name>
+    <sym>Camp</sym>
+    <desc>Open: Avril-Septembre - Novembre pour les locations; Places: ; Budget €/j: 10-15; Addr: 56360 Sauzon ; Tel: 02 97 31 64 82</desc>
+    <url>http://goo.gl/sGfumK</url>
+  </wpt>
+  <wpt lat="47.543424" lon="-2.908201">
+    <name>Camping MUNICIPAL Port Sable 2*</name>
+    <sym>Camp</sym>
+    <desc>Open: Avril-Septembre; Places: 185; Budget €/j: 20-25; Addr: 56640 ARZON; Tel: 02 97 53 71 98 </desc>
+    <url>http://www.camping-arzon.fr/fr</url>
+  </wpt>
+  <wpt lat="47.871223" lon="-3.02639">
+    <name>Camping MUNICIPAL de l Oree du Bois 1*</name>
+    <sym>Camp</sym>
+    <desc>Open: 15 Juin-15 Septembre; Places: 70; Budget €/j: 5-10; Addr: Avenue Corbel du Squirio , 56150 BAUD; Tel: 02 97 39 12 46 </desc>
+    <url>http://www.mairie-baud.fr/camping.php</url>
+  </wpt>
+  <wpt lat="47.624649" lon="-2.8269200000000003">
+    <name>Camping MUNICIPAL Parc Priol 2*</name>
+    <sym>Camp</sym>
+    <desc>Open: mi Juin-mi Septembre; Places: 160; Budget €/j: 15-25; Addr: Rue de la Mairie, 56610 ARRADON; Tel: 02 97 44 70 49 </desc>
+    <url>http://goo.gl/cvD0Er</url>
+  </wpt>
+  <wpt lat="47.556082" lon="-2.882152">
+    <name>Camping MUNICIPAL le Tindio 3*</name>
+    <sym>Camp</sym>
+    <desc>Open: Avril-Octobre; Places: 214; Budget €/j: 20-25; Addr: 2 Rue Du Bilouris, 56640 ARZON; Tel: 02 97 53 75 59</desc>
+    <url>http://www.camping-arzon.fr</url>
+  </wpt>
+  <wpt lat="47.695603" lon="-3.34995">
+    <name>Camping MUNICIPAL les Joncs 2*</name>
+    <sym>Camp</sym>
+    <desc>Open: mi Juin-Aout; Places: 120; Budget €/j: 15-20; Addr: Rue du Polygone, 56680 GAVRES; Tel: 02 97 82 46 88 </desc>
+    <url>http://www.gavres.fr/Les-Campings.6374.0.html</url>
+  </wpt>
+  <wpt lat="48.139301" lon="-3.6086650000000002">
+    <name>Camping MUNICIPAL Pont Min 2*</name>
+    <sym>Camp</sym>
+    <desc>Open: Juillet-Aout; Places: 35; Budget €/j: 10-15; Addr: route de quimper, 56110 GOURIN; Tel: 02 97 23 42 74 </desc>
+    <url>http://www.gourin.fr/piscine-camping.html</url>
+  </wpt>
+  <wpt lat="47.686893" lon="-3.3586190000000005">
+    <name>Camping MUNICIPAL la Lande 2*</name>
+    <sym>Camp</sym>
+    <desc>Open: mi Juin-Aout; Places: 200; Budget €/j: 15-20; Addr: La Lande, 56680 GAVRES; Tel: 02 97 82 48 61 </desc>
+    <url>http://www.gavres.fr/Les-Campings.6374.0.html</url>
+  </wpt>
+  <wpt lat="47.584921" lon="-2.407551">
+    <name>Camping MUNICIPAL le Guerno 2*</name>
+    <sym>Camp</sym>
+    <desc>Open: Avril-Octobre / chalets tte l annee; Places: 40; Budget €/j: 10-15; Addr: 56190 LE GUERNO; Tel: 02 97 42 99 38 </desc>
+    <url>http://www.leguerno.fr/index.php/le-camping-municipal</url>
+  </wpt>
+  <wpt lat="48.121478" lon="-3.234664">
+    <name>Camping MUNICIPAL Karmanu </name>
+    <sym>Camp</sym>
+    <desc>Open: Mai-Septembre; Places: 25; Budget €/j: ns; Addr: 56160 LANGOELAN; Tel: 02 97 51 25 54</desc>
+    <url>http://www.langoelan.fr/h%C3%A9bergement/</url>
+  </wpt>
+  <wpt lat="47.804443" lon="-3.282992">
+    <name>Camping MUNICIPAL St Caradec 2*</name>
+    <sym>Camp</sym>
+    <desc>Open: 15 Juin-15 Septembre; Places: 60; Budget €/j: 10-15; Addr: Quai Julien Caradec, 56700 HENNEBONT; Tel: 02 97 36 21 73 </desc>
+    <url>http://www.ville-hennebont.fr/Logements-saisonniers.5491.0.html</url>
+  </wpt>
+  <wpt lat="47.556459" lon="-2.939122">
+    <name>Camping MUNICIPAL la Falaise 2*</name>
+    <sym>Camp</sym>
+    <desc>Open: mi Mars- mi Octobre; Places: 308; Budget €/j: 15-20; Addr: 10 rue Henri EZAN, 56740 LOCMARIAQUER; Tel: 02 97 57 31 59 </desc>
+    <url>http://www.locmariaquer.fr/camping-municipal-page-52-rub-7.html</url>
+  </wpt>
+</gpx>

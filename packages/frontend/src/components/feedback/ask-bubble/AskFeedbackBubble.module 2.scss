@@ -1,0 +1,73 @@
+/**
+ * Copyright © 2021 Rémi Pace.
+ * This file is part of Abc-Map.
+ *
+ * Abc-Map is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of
+ * the License, or (at your option) any later version.
+ *
+ * Abc-Map is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General
+ * Public License along with Abc-Map. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+@import "src/styles/variables";
+
+.container {
+  position: fixed;
+  bottom: 3vmin;
+  right: 5vmin;
+  z-index: $zIndex-feedback-bubble;
+
+  .bubble {
+    position: relative;
+    background: $secondary;
+    border-radius: $border-radius;
+
+    color: white;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .bubble:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 0;
+    height: 0;
+    border: 0.969em solid transparent;
+    border-top-color: $secondary;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -0.484em;
+    margin-bottom: -0.969em;
+  }
+
+  .btnOk {
+    border-radius: $border-radius;
+    background-color: white;
+    padding: 0.2rem 0.5rem;
+    border: none;
+
+    color: $secondary;
+    font-weight: bold;
+
+    margin: 0.4rem;
+  }
+
+  .btnNo {
+    border-radius: $border-radius;
+    background-color: white;
+    padding: 0.2rem 0.5rem;
+    border: none;
+    color: $secondary;
+
+    margin: 0.4rem;
+  }
+}

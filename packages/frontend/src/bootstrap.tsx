@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright © 2021 Rémi Pace.
  * This file is part of Abc-Map.
@@ -101,7 +102,7 @@ function bootstrapError(err: Error | AxiosError | undefined): void {
   if (HttpError.isTooManyRequests(err)) {
     message = 'You have exceeded the number of authorized requests 😭. Please try again later.';
   } else {
-    message = 'Small technical issue 😅 Please try again later.';
+    message = 'Small technical issue 😅 Please try again later. Bootstrap error: ' + err;
   }
 
   const root = document.querySelector('#root');
