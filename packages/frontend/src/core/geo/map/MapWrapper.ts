@@ -226,6 +226,7 @@ export class MapWrapper {
     return i;
   }
 
+  // All features that are selected in active layer
   public getSelectedFeatures(): FeatureWrapper[] {
     const layer = this.getActiveVectorLayer();
     if (!layer) {
@@ -237,6 +238,33 @@ export class MapWrapper {
       .getFeatures()
       .map((f) => FeatureWrapper.from(f))
       .filter((f) => f.isSelected());
+  }
+
+  // All features in active vector layer
+  public getActiveFeatures(): FeatureWrapper[] {
+    const layer = this.getActiveVectorLayer();
+    if (!layer) {
+      return [];
+    }
+
+    return layer
+      .getSource()
+      .getFeatures()
+      .map((f) => FeatureWrapper.from(f));
+  }
+
+  public getFeaturesByID(id: string | number): FeatureWrapper | undefined {
+    const features = this.getActiveFeatures();
+    if (!features) {
+      return;
+    }
+
+    return features.find((f) => f.getId() === id);
+  }
+
+  public renameFeature(feature: FeatureWrapper, name: string): void {
+    feature.setName(name);
+    this.triggerLayerChange();
   }
 
   public getProjection(): AbcProjection {

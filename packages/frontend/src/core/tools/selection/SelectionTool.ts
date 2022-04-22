@@ -17,7 +17,7 @@
  */
 
 import { Tool } from '../Tool';
-import { Logger, MapTool } from '@abc-map/shared';
+import { LayerProperties, Logger, MapTool } from '@abc-map/shared';
 import { DragBox, Interaction, Translate } from 'ol/interaction';
 import VectorSource, { VectorSourceEvent } from 'ol/source/Vector';
 import Geometry from 'ol/geom/Geometry';
@@ -116,6 +116,7 @@ export class SelectionTool implements Tool {
         const last = FeatureWrapper.from(this.selection.getArray()[this.selection.getLength() - 1]);
         dispatchStyle(last);
       }
+      this.map?.getLayers().set(LayerProperties.LastLayerChange, performance.now());
     });
 
     // Translate selection
@@ -156,7 +157,6 @@ export class SelectionTool implements Tool {
     });
 
     // When vector source change we update selection
-    // TODO: unit test
     this.sourceListeners.push(source.on('addfeature', this.handleFeatureAdded));
     this.sourceListeners.push(source.on('removefeature', this.handleFeatureRemoved));
     this.sourceListeners.push(source.on('clear', this.handleSourceClear));

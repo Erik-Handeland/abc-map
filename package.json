@@ -6,5 +6,9 @@
   },
   "volta": {
     "node": "14.19.1"
+  },
+  "commands": {
+    "abc start": "cd ${workspaceFolder} | ./abc-cli start",
+    "abc build": "cd ${workspaceFolder} | ./abc-cli build"
   }
 }

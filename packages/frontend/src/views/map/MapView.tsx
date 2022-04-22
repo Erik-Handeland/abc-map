@@ -20,6 +20,7 @@ import Cls from './MapView.module.scss';
 import React, { useCallback, useEffect, useState } from 'react';
 import MainMap from './main-map/MainMap';
 import LayerControls from './layer-controls/LayerControls';
+import FeatureControls from './feature-controls/FeatureControls';
 import ProjectStatus from './project-status/ProjectStatus';
 import { Logger } from '@abc-map/shared';
 import ProjectControls from './project-controls/ProjectControls';
@@ -39,6 +40,10 @@ import SideMenu from '../../components/side-menu/SideMenu';
 import { useServices } from '../../core/useServices';
 import { FullscreenButton } from './fullscreen-button/FullscreenButton';
 import { isDesktopDevice } from '../../core/ui/isDesktopDevice';
+import { Scale } from '../../components/scale/Scale';
+import { Attributions } from './main-map/attributions/Attributions';
+import { Zoom } from './main-map/zoom/Zoom';
+import { FeatureWrapper } from '../../core/geo/features/FeatureWrapper';
 
 const logger = Logger.get('MapView.tsx');
 
@@ -48,6 +53,7 @@ function MapView() {
   const { geo } = useServices();
   const [layers, setLayers] = useState<LayerWrapper[]>([]);
   const [activeLayer, setActiveLayer] = useState<LayerWrapper | undefined>();
+  const [features, setFeatures] = useState<FeatureWrapper[]>([]);
 
   const mainMap = geo.getMainMap();
 
@@ -59,6 +65,7 @@ function MapView() {
     logger.debug('Layers changed');
     setLayers(mainMap.getLayers());
     setActiveLayer(mainMap.getActiveLayer());
+    setFeatures(mainMap.getActiveFeatures());
   }, [mainMap]);
 
   useEffect(() => {
@@ -78,14 +85,18 @@ function MapView() {
 
   return (
     <div className={Cls.mapView}>
-      {/* Toggle fullscreen button */}
-      <FullscreenButton style={{ top: '40vh', left: '2vw' }} />
+      {/*Map Viewp*/}
+      <MainMap />
 
-      {/* Search menu */}
+      {/*Map Overlays:*/}
+      {/* Toggle fullscreen button*/}
+      <FullscreenButton style={{ top: '6vh', left: '50vw' }} />
+
+      {/* Search menu  TODO Replace with search bar*/}
       <SideMenu
         title={t('Search_menu')}
         buttonIcon={IconDefs.faSearch}
-        buttonStyle={{ top: '50vh', left: '2vw' }}
+        buttonStyle={{ top: '6vh', left: '30vw' }}
         menuPlacement={'left'}
         menuId={'views/MapView-search'}
         data-cy={'search-menu'}
@@ -97,11 +108,11 @@ function MapView() {
         <div className={Cls.spacer} />
       </SideMenu>
 
-      {/* Project menu */}
+      {/* Project menu TODO replace with Dropdown similar to UserMenu and change to gear icon aka ProjectSettings*/}
       <SideMenu
         title={t('Project_menu')}
         buttonIcon={IconDefs.faFileAlt}
-        buttonStyle={{ top: '60vh', left: '2vw' }}
+        buttonStyle={{ top: '6vh', left: '54vw' }}
         menuPlacement={'left'}
         menuId={'views/MapView-project'}
         data-cy={'project-menu'}
@@ -114,23 +125,44 @@ function MapView() {
         <div className={Cls.spacer} />
       </SideMenu>
 
-      {/*Main map*/}
-      <MainMap />
-
-      {/* Draw menu */}
+      {/* Draw Tool menu */}
       <SideMenu
-        title={t('Draw_menu')}
+        title={t('Tools_menu')}
+        buttonIcon={IconDefs.faScrewdriverWrench}
+        buttonStyle={{ top: '50vh', left: '2vw' }}
+        menuPlacement={'left'}
+        menuId={'views/MapView-tools'}
+        initiallyOpened={isDesktopDevice()}
+        data-cy={'tools-menu'}
+      >
+        <HistoryControls historyKey={HistoryKey.Map} />
+        <ToolSelector activeLayer={activeLayer} />
+      </SideMenu>
+
+      {/* Draw Layer and feature menu */}
+      <SideMenu
+        title={t('Layers_menu')}
         buttonIcon={IconDefs.faDraftingCompass}
         buttonStyle={{ top: '50vh', right: '2vw' }}
         menuPlacement={'right'}
-        menuId={'views/MapView-draw'}
+        menuId={'views/MapView-layers'}
         initiallyOpened={isDesktopDevice()}
-        data-cy={'draw-menu'}
+        data-cy={'layers-menu'}
       >
-        <HistoryControls historyKey={HistoryKey.Map} />
         <LayerControls layers={layers} />
-        <ToolSelector activeLayer={activeLayer} />
+        <FeatureControls features={features} />
       </SideMenu>
+
+      {/*Main map Bottom Bar*/}
+      <div className={Cls.bottomBar}>
+        {/* TODO Center Scale */}
+        <Scale map={mainMap} className={Cls.scale} />
+
+        <div className={Cls.controls}>
+          <Attributions map={mainMap} />
+          <Zoom map={mainMap} />
+        </div>
+      </div>
     </div>
   );
 }

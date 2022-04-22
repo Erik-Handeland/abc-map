@@ -21,7 +21,26 @@
 
 .commonActions {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+
+  button {
+    font-size: 1.2rem;
+    padding: 0 0.5rem !important;
+
+    @include media-breakpoint-down(xl) {
+      font-size: 1.4rem;
+    }
+
+    :global(.abc-icon) {
+      color: $gray-500;
+    }
+
+    &:hover {
+      :global(.abc-icon) {
+        color: $gray-700;
+      }
+    }
+  }
 }

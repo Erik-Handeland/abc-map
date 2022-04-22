@@ -124,6 +124,8 @@ import { faShareAltSquare } from '@fortawesome/free-solid-svg-icons/faShareAltSq
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons/faClipboard';
 import { faStickyNote } from '@fortawesome/free-solid-svg-icons/faStickyNote';
+import { faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons/faScrewdriverWrench';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons/faLocationDot';
 
 export const IconDefs = {
   faGear,
@@ -234,4 +236,6 @@ export const IconDefs = {
   faExternalLinkAlt,
   faClipboard,
   faStickyNote,
+  faScrewdriverWrench,
+  faLocationDot,
 };

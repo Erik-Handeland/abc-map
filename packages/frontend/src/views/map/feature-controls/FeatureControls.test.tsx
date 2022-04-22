@@ -1,3 +1,4 @@
+export {};
 /**
  * Copyright © 2021 Rémi Pace.
  * This file is part of Abc-Map.
@@ -16,8 +17,22 @@
  * Public License along with Abc-Map. If not, see <https://www.gnu.org/licenses/>.
  */
 
-export enum FeatureProperties {
-  Selected = 'abc:feature:selected',
-  Name = 'abc:feature:name',
-  Type = 'abc:feature:type',
-}
+// TODO
+// import React from 'react';
+// import { screen } from '@testing-library/react';
+// import LayerControls from './LayerControls';
+// import { newTestServices, TestServices } from '../../../core/utils/test/TestServices';
+// import { abcRender } from '../../../core/utils/test/abcRender';
+
+// describe('LayerControls', () => {
+//   let testServices: TestServices;
+//   beforeEach(() => {
+//     testServices = newTestServices();
+//   });
+
+//   it('renders without layers', () => {
+//     abcRender(<LayerControls layers={[]} />, { services: testServices });
+//     const linkElement = screen.getByText(/No layer/i);
+//     expect(linkElement).toBeInTheDocument();
+//   });
+// });

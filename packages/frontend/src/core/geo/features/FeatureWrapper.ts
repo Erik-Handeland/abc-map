@@ -81,6 +81,10 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
     return this.feature.getId();
   }
 
+  public getOlUid(): string | number | undefined {
+    return this.getAllProperties().geometry.ol_uid;
+  }
+
   /**
    * Clone feature, including its id
    */
@@ -97,6 +101,24 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
   public setSelected(value: boolean): FeatureWrapper {
     this.feature.set(FeatureProperties.Selected, value);
     return this;
+  }
+
+  public setName(value: string): boolean {
+    this.feature.set(FeatureProperties.Name, value);
+    return true;
+  }
+
+  public getName(): string {
+    return this.feature.get(FeatureProperties.Name) as string;
+  }
+
+  public setType(value: string): boolean {
+    this.feature.set(FeatureProperties.Type, value);
+    return true;
+  }
+
+  public getType(): string {
+    return this.feature.get(FeatureProperties.Type) as string;
   }
 
   /**
@@ -235,7 +257,9 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
   }
 
   public getAllProperties(): PropertiesMap {
-    return this.feature.getProperties();
+    const props = this.feature.getProperties();
+    props['id'] = this.getId(); // doesn't enclude id for some reason
+    return props;
   }
 
   /**

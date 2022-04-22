@@ -37,7 +37,7 @@ const t = prefixedTranslation('HistoryControls:');
 function HistoryControls(props: Props) {
   const { historyKey } = props;
   const capabilities = useAppSelector((state) => state.ui.historyCapabilities)[historyKey];
-  const { history, toasts } = useServices();
+  const { geo, history, toasts } = useServices();
 
   const canUndo = capabilities?.canUndo ?? false;
   const canRedo = capabilities?.canRedo ?? false;
@@ -47,14 +47,18 @@ function HistoryControls(props: Props) {
       logger.error(err);
       toasts.genericError();
     });
-  }, [historyKey, history, toasts]);
+    const map = geo.getMainMap();
+    map.triggerLayerChange();
+  }, [geo, historyKey, history, toasts]);
 
   const handleRedo = useCallback(() => {
     history.redo(historyKey).catch((err) => {
       logger.error(err);
       toasts.genericError();
     });
-  }, [historyKey, history, toasts]);
+    const map = geo.getMainMap();
+    map.triggerLayerChange();
+  }, [geo, historyKey, history, toasts]);
 
   return (
     <div className={`control-block ${Cls.historyControls}`}>

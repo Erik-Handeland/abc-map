@@ -40,7 +40,7 @@ export function ToolButton(props: Props) {
   }, [onSelect, tool]);
 
   return (
-    <WithTooltip title={t(tool.getI18nLabel())} placement={'left'}>
+    <WithTooltip title={t(tool.getI18nLabel())} placement={'top'}>
       <button
         onClick={handleSelect}
         className={classes}

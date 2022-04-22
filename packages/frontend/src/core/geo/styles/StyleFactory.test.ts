@@ -27,9 +27,6 @@ import { IconName } from '../../../assets/point-icons/IconName';
 import { FeatureWrapper } from '../features/FeatureWrapper';
 import { DefaultStyleOptions } from './StyleFactoryOptions';
 import { AbcGeometryType } from '@abc-map/shared';
-
-// TODO: test other geometries
-
 describe('StyleFactory', () => {
   describe('With a fake cache', () => {
     let cache: SinonStubbedInstance<StyleCache>;

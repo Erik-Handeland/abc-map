@@ -147,6 +147,7 @@ function CommonActions() {
     const cs = new AddFeaturesChangeset(layer.getSource(), clones);
     cs.apply().catch((err) => logger.error('Cannot clone features: ', err));
     history.register(HistoryKey.Map, cs);
+    map.triggerLayerChange();
   }, [geo, history, toasts]);
 
   const handleDeleteFeatures = useCallback(() => {
@@ -163,20 +164,25 @@ function CommonActions() {
     const cs = new RemoveFeaturesChangeset(layer.getSource(), features);
     cs.apply().catch((err) => logger.error('Cannot delete features: ', err));
     history.register(HistoryKey.Map, cs);
+    map.triggerLayerChange();
   }, [geo, history, toasts]);
 
   const handleMoveBehind = useCallback(() => {
+    const map = geo.getMainMap();
     const changes = geo.updateSelectedFeatures((s) => ({ ...s, zIndex: (s.zIndex || 0) - 1 }));
     if (!changes) {
       toasts.info(t('You_must_select_geometries_first'));
     }
+    map.triggerLayerChange();
   }, [geo, toasts]);
 
   const handleMoveAhead = useCallback(() => {
+    const map = geo.getMainMap();
     const changes = geo.updateSelectedFeatures((s) => ({ ...s, zIndex: (s.zIndex || 0) + 1 }));
     if (!changes) {
       toasts.info(t('You_must_select_geometries_first'));
     }
+    map.triggerLayerChange();
   }, [geo, toasts]);
 
   const handleUnselectAll = useCallback(() => {

@@ -36,7 +36,7 @@ export function ActionButton(props: Props) {
   const dataTestId = props['data-testid'];
 
   return (
-    <WithTooltip title={title} placement={'left'}>
+    <WithTooltip title={title} placement={'bottom'}>
       <button onClick={onClick} className={`btn btn-link ${Cls.button}`} data-cy={dataCy} data-testid={dataTestId}>
         <FaIcon icon={icon} />
       </button>

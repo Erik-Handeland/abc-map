@@ -31,7 +31,7 @@ export class MoveMapTool implements Tool {
   }
 
   public getIcon(): string {
-    return Icon;
+    return Icon; //TODO: look at replacing with hand icon?
   }
 
   public getI18nLabel(): string {

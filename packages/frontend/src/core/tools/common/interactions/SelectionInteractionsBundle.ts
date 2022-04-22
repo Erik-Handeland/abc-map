@@ -86,7 +86,6 @@ export class SelectionInteractionsBundle {
     });
 
     // When vector source change we update selection
-    // TODO: unit test
     this.sourceListeners.push(source.on('addfeature', this.handleFeatureAdded));
     this.sourceListeners.push(source.on('removefeature', this.handleFeatureRemoved));
     this.sourceListeners.push(source.on('clear', this.handleClear));

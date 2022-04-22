@@ -20,8 +20,6 @@ export interface Prj {
   original: string;
   wkt: PrjWkt;
 }
-
-// TODO: improve typings
 export interface PrjWkt {
   type: 'PROJCS';
   name: string;

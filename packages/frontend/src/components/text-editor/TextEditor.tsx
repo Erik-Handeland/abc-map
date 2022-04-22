@@ -56,8 +56,7 @@ export interface Props {
  * @param props
  * @constructor
  */
-// TODO: Setup nested tables
-// TODO: Add history wiring with HistoryService
+
 function TextEditor(props: Props) {
   const { value, onChange, readOnly, className, controlBar: _controlBar, ratio: _ratio, background, 'data-cy': dataCy } = props;
   const ratio = _ratio ?? 1;

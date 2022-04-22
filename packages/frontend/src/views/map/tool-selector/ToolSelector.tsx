@@ -29,7 +29,6 @@ import { HistoryKey } from '../../../core/history/HistoryKey';
 import { AddLayersChangeset } from '../../../core/history/changesets/layers/AddLayersChangeset';
 import { prefixedTranslation } from '../../../i18n/i18n';
 import { useServices } from '../../../core/useServices';
-import CommonActions from './_common/common-actions/CommonActions';
 import DialogBoxAdvice from '../../../components/dialog-box-advice/DialogBoxAdvice';
 import { ToolTips } from '@abc-map/user-documentation';
 import { ToolButton } from './ToolButton';
@@ -154,12 +153,23 @@ function ToolSelector(props: Props) {
           <div className={Cls.toolsEnabled}>
             {/* Left part with tool buttons and common actions */}
             <div className={Cls.buttonBar}>
-              {ToolRegistry.getAll().map((tool) => {
+              {/* Navigation Tools */}
+              {ToolRegistry.getSelection().map((tool) => {
                 const isActive = tool.getId() === activeTool?.getId();
                 return <ToolButton key={tool.getId()} tool={tool} active={isActive} onSelect={handleToolSelection} />;
               })}
               <div className={Cls.spacer} />
-              <CommonActions />
+              {/* Creation Tools, Points, Lines, Shapes */}
+              {ToolRegistry.getCreate().map((tool) => {
+                const isActive = tool.getId() === activeTool?.getId();
+                return <ToolButton key={tool.getId()} tool={tool} active={isActive} onSelect={handleToolSelection} />;
+              })}
+              <div className={Cls.spacer} />
+              {/* Modify Tools, Add labels, edit properties */}
+              {ToolRegistry.getModify().map((tool) => {
+                const isActive = tool.getId() === activeTool?.getId();
+                return <ToolButton key={tool.getId()} tool={tool} active={isActive} onSelect={handleToolSelection} />;
+              })}
             </div>
 
             {/* Right part with options  */}

@@ -26,14 +26,10 @@ import { prefixedTranslation } from '../../../i18n/i18n';
 import { withTranslation } from 'react-i18next';
 import { FaIcon } from '../../../components/icon/FaIcon';
 import { IconDefs } from '../../../components/icon/IconDefs';
-import { Attributions } from './attributions/Attributions';
-import { Zoom } from './zoom/Zoom';
 import { MapWrapper } from '../../../core/geo/map/MapWrapper';
 import BaseEvent from 'ol/events/Event';
 import { DataReader } from '../../../core/data/DataReader';
 import { ReadStatus } from '../../../core/data/ReadResult';
-import { Scale } from '../../../components/scale/Scale';
-
 export const logger = Logger.get('MainMap.ts');
 
 interface State {
@@ -62,22 +58,12 @@ class MainMap extends Component<ServiceProps, State> {
         {/* Main map support */}
         <div ref={this.mapRef} data-cy={'main-map'} className={Cls.map} onDragOver={this.handleDragOver} />
 
-        <div className={Cls.bottomBar}>
-          <Scale map={this.map} className={Cls.scale} />
-
-          <div className={Cls.controls}>
-            <Attributions map={this.map} />
-            <Zoom map={this.map} />
-          </div>
-        </div>
-
         {/* Warning if tiles does not load */}
         {tileError && (
           <div className={Cls.tileLoadError} onClick={this.handleDismissTileError}>
             {tileError} <FaIcon icon={IconDefs.faTimes} className={'ml-2'} />
           </div>
         )}
-
         {/* Overlay shown just before drag and drop */}
         {dragOverlay && (
           <>

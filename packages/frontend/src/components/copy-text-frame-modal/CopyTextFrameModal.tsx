@@ -27,8 +27,6 @@ import Cls from './CopyTextFrameModal.module.scss';
 
 const t = prefixedTranslation('CopyTextFrameModal:');
 
-// TODO: add frames from shared views
-
 interface Props {
   onConfirm: (frame: AbcTextFrame) => void;
   onCancel: () => void;

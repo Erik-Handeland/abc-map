@@ -99,11 +99,32 @@ Remarks:
 - You can install and use the Windows terminal to improve the display, otherwise you will see weird characters
 - On first start, the frontend can be very slow
 
+### Ubuntu 20.04 (actively supported)
+
+Install basic tools and dependencies:
+
+    Install Docker Desktop
+
+Install Homebrew, Node.js and yarn. There are several ways to do that.
+
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $ brew install --cask docker
+    $ brew install node
+    $ brew install yarn
+
+Clone source code:
+
+    $ git clone https://gitlab.com/abc-map/abc-map.git
+    $ cd abc-map
+
 ## Start and build Abc-Map locally
 
 A tool called `abc-cli` helps to build and start the project.
 
 The first time, or after a lot of modifications you must install dependencies and build the whole project:
+!$ commands I added for mac, sometimes I just had to run abc-cli command twice
+    !$ npm install
+    !$ yarn
 
     $ ./abc-cli install     # Install all dependencies. The first time it can take several minutes.
     $ ./abc-cli build       # Build all packages, needed the first time or after many changes.
