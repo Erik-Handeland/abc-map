@@ -193,6 +193,9 @@ export class DrawInteractionsBundle {
 
       const feature = FeatureWrapper.from(ev.feature);
       feature.setId();
+      feature.setType(this.options.type);
+      const name = `${feature.getType()}-${feature.getOlUid()}`;
+      feature.setName(name);
       feature.setStyleProperties(getStyle());
 
       // Register changeset for drawing start

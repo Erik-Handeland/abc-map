@@ -16,6 +16,8 @@
  * Public License along with Abc-Map. If not, see <https://www.gnu.org/licenses/>.
  */
 
-export enum FeatureProperties {
+export declare enum FeatureProperties {
   Selected = 'abc:feature:selected',
+  Name = 'abc:feature:name',
+  Type = 'abc:feature:type',
 }

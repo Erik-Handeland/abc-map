@@ -21,7 +21,7 @@ import Cls from './FeatureListItem.module.scss';
 import { IconDefs } from '../../../../components/icon/IconDefs';
 import { FaIcon } from '../../../../components/icon/FaIcon';
 import { PropertiesMap } from '../../../../core/geo/features/FeatureWrapper';
-import { FeatureProperties } from '@abc-map/shared/build/project/feature/FeatureProperties';
+import { FeatureProperties, MapTool } from '@abc-map/shared';
 
 interface Props {
   metadata: PropertiesMap;
@@ -33,7 +33,12 @@ function FeatureListItem(props: Props) {
   const meta = props.metadata;
   const id = meta.id; // meta.geometry.ol_uid
   const itemClasses = meta[FeatureProperties.Selected] ? `${Cls.listItem} ${Cls.active}` : `${Cls.listItem}`;
-  //const icon = meta.visible ? IconDefs.faEye : IconDefs.faEyeSlash;
+  const type = meta[FeatureProperties.Type] as string;
+  const icon = {
+    [MapTool.Point]: IconDefs.faLocationDot,
+    [MapTool.LineString]: IconDefs.faMinus,
+    [MapTool.Polygon]: IconDefs.faDrawPolygon,
+  }[type];
 
   const handleSelect = useCallback(() => {
     props.onSelect(id);
@@ -42,10 +47,9 @@ function FeatureListItem(props: Props) {
   return (
     <div className={itemClasses} data-cy={'list-item'}>
       {/* Eye icon, visible only if Feature is visible */}
-      {/* <FaIcon icon={icon} size={'1.2rem'} /> */}
+      <FaIcon icon={icon || IconDefs.faShareAltSquare} size={'1.2rem'} />
       <div className={'flex-grow-1'} onClick={handleSelect}>
-        {id + ' ' + meta[FeatureProperties.Name]}
-        {/* {'Data:' + JSON.stringify(meta)} */}
+        {meta[FeatureProperties.Name]}
       </div>
     </div>
   );

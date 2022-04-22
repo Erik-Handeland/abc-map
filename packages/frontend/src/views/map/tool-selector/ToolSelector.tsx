@@ -29,7 +29,6 @@ import { HistoryKey } from '../../../core/history/HistoryKey';
 import { AddLayersChangeset } from '../../../core/history/changesets/layers/AddLayersChangeset';
 import { prefixedTranslation } from '../../../i18n/i18n';
 import { useServices } from '../../../core/useServices';
-import CommonActions from './_common/common-actions/CommonActions';
 import DialogBoxAdvice from '../../../components/dialog-box-advice/DialogBoxAdvice';
 import { ToolTips } from '@abc-map/user-documentation';
 import { ToolButton } from './ToolButton';
@@ -40,7 +39,6 @@ import ToolModeSelector from './_common/tool-mode-selector/ToolModeSelector';
 import { Tool } from '../../../core/tools/Tool';
 import Cls from './ToolSelector.module.scss';
 import MeasuresToolPanel from './measures/MeasuresToolPanel';
-import { PolygonTool } from '../../../core/tools/polygon/PolygonTool';
 
 const logger = Logger.get('ToolSelector');
 

@@ -30,7 +30,7 @@ import { EditPropertiesTool } from './edit-properties/EditPropertiesTool';
 import { MeasureTool } from './measure/MeasureTool';
 
 export class ToolRegistry {
-  private static getAll(): Tool[] {
+  public static getAll(): Tool[] {
     const history = getServices().history;
     const modals = getServices().modals;
     return [
