@@ -81,6 +81,10 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
     return this.feature.getId();
   }
 
+  public getOlUid(): string | number | undefined {
+    return this.getAllProperties().geometry.ol_uid;
+  }
+
   /**
    * Clone feature, including its id
    */
@@ -104,8 +108,17 @@ export class FeatureWrapper<Geom extends OlGeometry = OlGeometry> {
     return true;
   }
 
-  public getName(): String {
-    return this.feature.get(FeatureProperties.Name);
+  public getName(): string {
+    return this.feature.get(FeatureProperties.Name) as string;
+  }
+
+  public setType(value: string): boolean {
+    this.feature.set(FeatureProperties.Type, value);
+    return true;
+  }
+
+  public getType(): string {
+    return this.feature.get(FeatureProperties.Type) as string;
   }
 
   /**

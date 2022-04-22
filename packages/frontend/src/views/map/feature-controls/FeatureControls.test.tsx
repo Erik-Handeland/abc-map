@@ -1,3 +1,4 @@
+export {};
 /**
  * Copyright © 2021 Rémi Pace.
  * This file is part of Abc-Map.

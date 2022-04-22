@@ -18,4 +18,6 @@
 
 export enum FeatureProperties {
   Selected = 'abc:feature:selected',
+  Name = 'abc:feature:name',
+  Type = 'abc:feature:type',
 }
